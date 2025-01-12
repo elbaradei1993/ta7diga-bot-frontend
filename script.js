@@ -13,7 +13,8 @@ async function startVideoChat() {
     }
 
     try {
-        const response = await fetch('https://your-railway-backend-url.com/api/videochat', {
+        // Make a POST request to the backend
+        const response = await fetch('https://your-backend-project.up.railway.app/api/videochat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,6 +22,7 @@ async function startVideoChat() {
             body: JSON.stringify({ token: token }),
         });
 
+        // Handle the response from the backend
         const data = await response.json();
         if (data.chat_link) {
             document.getElementById('response').innerHTML = `
